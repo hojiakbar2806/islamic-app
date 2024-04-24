@@ -255,8 +255,9 @@ async def send_regions_for_ramadan(context, chat_id):
 async def send_ramadan_calendar(context, chat_id, region_id):
     ramadan_calendar = await sync_to_async(get_object_or_404)(RamadanCalendar, id=region_id)
     await context.bot.send_photo(chat_id=chat_id, photo=ramadan_calendar.ramadan_image,
-                                 caption=f'{
-                                     ramadan_calendar.region_name} ramazon vaqtlar',
+                                 caption=(
+                                     f"{ramadan_calendar.region_name} ramazon vaqtlar"
+                                 ),
                                  reply_markup=InlineKeyboardMarkup(
                                      [
                                          [
