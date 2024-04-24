@@ -25,7 +25,7 @@ async def message_handler(update, context):
                     await send_regions_for_ramadan(context, chat_id)
 
         if message == 'Duolar':
-            print('duolar')
+            print('new duolar')
     except Http404:
         await save_user(update, context)
 
