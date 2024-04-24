@@ -25,7 +25,9 @@ async def message_handler(update, context):
                     await send_regions_for_ramadan(context, chat_id)
 
         if message == 'Duolar':
-            print('new duolar')
+            times = await request_namaz(context, chat_id, user)
+            await remove_message(context, chat_id, message_id)
+            await send_namaz_time_for_day(context, chat_id, times)
     except Http404:
         await save_user(update, context)
 
